@@ -10,12 +10,28 @@ with open("/home/tommy/health/config.ini", mode='r', encoding='utf-8') as f:
 
 def access():
     ##  初始化浏览器设置
-    # options = webdriver.FirefoxOptions()
+    
+    ## webdriver文件地址
+    executable_path = '/home/tommy/health/chromedriver'
+    #executable_path = '/home/tommy/health/geckodriver'
+    
+    ## Firefox
+    # options = webdriver.FirefoxOptions() 
+    ## Chrome
     options = webdriver.ChromeOptions()
+    ## Edge
+    #options = webdriver.EdgeOptions()
+    
+    ## 后台运行
     options.add_argument("--headless")
-    # browser = webdriver.Firefox(options=options,executable_path='/home/tommy/health/geckodriver')
+    
+    ## Firefox
+    # browser = webdriver.Firefox(options=options,executable_path=executable_path)
+    ## Edge
     # browser = webdriver.Edge()
-    browser = webdriver.Chrome(options=options,executable_path='/home/tommy/health/chromedriver')
+    ##Chrome
+    browser = webdriver.Chrome(options=options,executable_path=executable_path)
+    
     ##  访问主页
     browser.get(url='http://jktb.cdutcm.edu.cn/#/login')
     browser.implicitly_wait(30)
